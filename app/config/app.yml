@@ -1,0 +1,5 @@
+db:
+  host: "127.0.0.1"
+  user: "root"
+  password: "25@_SvR_%27"
+  database: "discord_game_db_lab3"
