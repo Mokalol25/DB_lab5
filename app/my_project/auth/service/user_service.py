@@ -26,3 +26,11 @@ class UserService:
 
     def delete(self, user_id):
         return self.dao.delete(user_id)
+    
+    
+    
+    def insert_10_nonames(self):
+        return self.dao.insert_10_nonames()
+
+    def run_cursor_split(self):
+        return self.dao.run_cursor_split()

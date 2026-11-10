@@ -33,3 +33,14 @@ def update_user(user_id):
 @user_bp.route('/<int:user_id>', methods=['DELETE'])
 def delete_user(user_id):
     return user_controller.delete(user_id)
+
+
+
+
+@user_bp.route('/insert-nonames', methods=['POST'])
+def insert_nonames():
+    return user_controller.insert_10_nonames()
+
+@user_bp.route('/run-cursor', methods=['POST'])
+def run_cursor():
+    return user_controller.run_cursor_split()

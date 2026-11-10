@@ -34,3 +34,21 @@ class UserController:
         if deleted_rows > 0:
             return jsonify({"message": "Користувача видалено"}), 200
         return jsonify({"message": "Користувача не знайдено"}), 404
+    
+    
+    
+    
+    
+    def insert_10_nonames(self):
+        try:
+            self.service.insert_10_nonames()
+            return jsonify({"message": "10 користувачів (Noname) успішно додано до бази!"}), 201
+        except Exception as e:
+            return jsonify({"error": str(e)}), 500
+
+    def run_cursor_split(self):
+        try:
+            self.service.run_cursor_split()
+            return jsonify({"message": "Курсор успішно відпрацював! Перевір нові таблиці в базі даних."}), 200
+        except Exception as e:
+            return jsonify({"error": str(e)}), 500

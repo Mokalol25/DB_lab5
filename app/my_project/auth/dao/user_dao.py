@@ -9,8 +9,7 @@ class UserDAO:
 
     def get_all(self):
         with self._get_connection() as db:
-            with db.cursor(dictionary=True) as cursor:
-                # Паролі зазвичай не повертають у відповідях API
+            with db.cursor(dictionary=True) as cursor:  
                 cursor.execute("SELECT id, username, email, created_at FROM users")
                 return cursor.fetchall()
 
@@ -42,3 +41,22 @@ class UserDAO:
                 cursor.execute("DELETE FROM users WHERE id = %s", (user_id,))
                 db.commit()
                 return cursor.rowcount
+    
+    
+    
+    
+    def insert_10_nonames(self):
+        with self._get_connection() as db:
+            with db.cursor() as cursor:
+                # Викликаємо процедуру без параметрів
+                cursor.callproc('insert_10_nonames')
+                db.commit()
+                return True
+
+    def run_cursor_split(self):
+        with self._get_connection() as db:
+            with db.cursor() as cursor:
+                # Викликаємо процедуру з курсором
+                cursor.callproc('cursor_random_split')
+                db.commit()
+                return True
